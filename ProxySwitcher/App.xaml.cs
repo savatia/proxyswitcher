@@ -21,8 +21,6 @@ namespace ProxySwitcher
         {
             base.OnStartup(e);
             MainWindow mainWindow = new MainWindow();
-           
-
 
         }
 
