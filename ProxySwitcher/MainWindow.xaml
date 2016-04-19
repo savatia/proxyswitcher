@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:ProxySwitcher"
         mc:Ignorable="d"
         xmlns:res="clr-namespace:ProxySwitcher.Resources"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800">
     <Window.Resources>
-        <res:MenuItemToIconConverter x:Key="IconConverter"/>
+        
     </Window.Resources>
     <Border>
         <Grid >
@@ -16,88 +16,22 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1">
                 <TextBlock Margin="20,0,0,0" Padding="10" Text="Proxy Switcher" FontSize="20" FontWeight="DemiBold"/>
             </Border>
-            <Border Grid.Row="1" >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemsSource="{Binding AllProfiles}" SelectionChanged="ProfileListView_SelectionChanged"  x:Name="ProfileListView">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Border Padding="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-                                    <Grid >
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.Resources>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Margin" Value="20, 0, 0, 0"/>
-                                            </Style>
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Button Content="Profiles" x:Name="ProfilesButton" Click="ProfilesButton_Click"/>
 
-                                            <Style TargetType="{x:Type Button}">
-                                                <Setter Property="Margin" Value="20, 0, 0, 0"/>
-                                                <Setter Property="Padding" Value="4,0,4,0"/>
-                                                <Setter Property="HorizontalAlignment" Value="Right"/>
-                                                <Setter Property="VerticalAlignment" Value="Center"/>
-                                                
-                                            </Style>
-                                            
-                                        </Grid.Resources>
-                                        <TextBlock FontWeight="SemiBold" Grid.Row="0" Grid.Column="0" Text="Name:"/>
-                                        <TextBlock  Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+                <Button Content="Settings" x:Name="SettingssButton" Click="SettingssButton_Click"/>
 
-                                        <TextBlock FontWeight="SemiBold" Grid.Row="1" Grid.Column="0" Text="Configuration Script:"/>
-                                        <TextBlock  Grid.Row="1" Grid.Column="1" Text="{Binding ConfigurationScript}"/>
-
-                                        <TextBlock FontWeight="SemiBold" Grid.Row="2" Grid.Column="0" Text="Proxy Address:"/>
-                                        <TextBlock  Grid.Row="2" Grid.Column="1" Text="{Binding ProxyAddress}"/>
-
-                                        <TextBlock FontWeight="SemiBold" Grid.Row="3" Grid.Column="0" Text="Port:"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Port}"/>
-
-                                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
-                                            <Button Content="Edit"/>
-                                            <Button Content="Delete"/>
-                                        </StackPanel>
-
-                                        <Viewbox  Grid.RowSpan="5" Grid.Column="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Visibility="{Binding IsActive, Converter={StaticResource IconConverter}}">
-                                            <Canvas Name="svg2" Width="24" Height="24">
-                                                <Canvas.RenderTransform>
-                                                    <TranslateTransform X="0" Y="0"/>
-                                                </Canvas.RenderTransform>
-                                                <Canvas.Resources/>
-                                                <!--Unknown tag: metadata-->
-                                                <!--Unknown tag: sodipodi:namedview-->
-                                                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4" Fill="#000000" >
-                                                    <Path.Data>
-                                                        <PathGeometry Figures="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12C24 5.373 18.627 0 12 0z M11 17.414l-4.707-4.707 l1.414-1.414L11 14.586l7.293-7.293l1.414 1.414L11 17.414z" FillRule="NonZero"/>
-                                                    </Path.Data>
-                                                </Path>
-                                            </Canvas>
-                                        </Viewbox>
-
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <Button x:Name="NewProfileButton" Grid.Row="1" Content="+" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="25" Width="25" Margin="10" Click="NewProfileButton_Click"/>
-                </Grid>
-         
-            </Border>
+                <Button Content="About" x:Name="AboutsButton" Click="AboutsButton_Click"/>
+            </StackPanel>
+            <ContentControl Grid.Column="1" Grid.Row="1" x:Name="Container"/>
+            
         </Grid>
     </Border>
 </Window>

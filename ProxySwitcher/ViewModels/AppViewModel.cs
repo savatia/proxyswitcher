@@ -1,4 +1,5 @@
 ﻿using Hardcodet.Wpf.TaskbarNotification;
+using Microsoft.Win32;
 using ProxySwitcher.Model;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ProxySwitcher.ViewModels
@@ -40,6 +42,38 @@ namespace ProxySwitcher.ViewModels
             return _currentViewModel;
         }
 
+        internal void RunOnStartup(bool isChecked)
+        {
+            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            if (isChecked)
+            {
+                // Add the value in the registry so that the application runs at startup
+                rkApp.SetValue("ProxySwitcher", System.Reflection.Assembly.GetExecutingAssembly().Location);
+            }
+            else
+            {
+                // Remove the value from the registry so that the application doesn't start
+                rkApp.DeleteValue("ProxySwitcher", false);
+            }
+
+        }
+
+        public bool CanRunOnStartUp()
+        {
+            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (rkApp.GetValue("ProxySwitcher") == null)
+            {
+                // The value doesn't exist, the application is not set to run at startup
+                return false;
+            }
+            else
+            {
+                // The value exists, the application is set to run at startup
+                return true;
+            }
+        }
+
         public AppViewModel(MainWindow mainWindow)
         {
             _stateManager = new StateManager();
@@ -55,6 +89,18 @@ namespace ProxySwitcher.ViewModels
         public void SaveProxyProfile(ProxyProfile profile)
         {
             _stateManager.AddProfile(profile);
+            _stateManager.SaveDatabase();
+        }
+
+        public void DeleteProxyProfile(ProxyProfile profile)
+        {
+            _stateManager.RemoveProfile(profile);
+            _stateManager.SaveDatabase();
+        }
+
+        public void EditProxyProfile(ProxyProfile profile)
+        {
+            _stateManager.EditProfile(profile);
             _stateManager.SaveDatabase();
         }
 
@@ -104,6 +150,7 @@ namespace ProxySwitcher.ViewModels
         {
             _mainWindow.Show();
         }
+
 
         public ICommand ShowWindowCommand
         {

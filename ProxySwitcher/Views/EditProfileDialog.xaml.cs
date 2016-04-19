@@ -8,31 +8,58 @@ namespace ProxySwitcher.Views
     /// </summary>
     public partial class EditProfileDialog : Window
     {
-        private MainWindow _mainWindow;
+        private ProfilesView _settingsView;
         private ProxyProfile _proxyProfile = null;
-        public EditProfileDialog( MainWindow mainWindow, ProxyProfile proxyProfile)
+        public EditProfileDialog( ProfilesView profilesView, ProxyProfile proxyProfile)
         {
             InitializeComponent();
             _proxyProfile = proxyProfile;
-            _mainWindow = mainWindow;
+            _settingsView = profilesView;
+
+            UpdateControls();
+            
         }
 
-        public EditProfileDialog(MainWindow mainWindow)
+        public EditProfileDialog(ProfilesView ProfilesView)
         {
             InitializeComponent();
-            _mainWindow = mainWindow;
+            _settingsView = ProfilesView;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _mainWindow.RecieveProfile(new ProxyProfile(NameTextBlock.Text)
+            if(_proxyProfile == null)
+            _settingsView.RecieveProfile(new ProxyProfile(NameTextBlock.Text)
             {
                 AutomaticScript = AScriptTextBlock.Text,
                 ProxyAddress = ProxyTextBlock.Text,
                 Port = PortTextBlock.Text
             }
             );
+
+            else
+            {
+                _proxyProfile.AutomaticScript = AScriptTextBlock.Text;
+                _proxyProfile.ProxyAddress =  ProxyTextBlock.Text;
+                _proxyProfile.Port = PortTextBlock.Text;
+
+                _settingsView.RecieveChangedProfile(_proxyProfile);
+            }
             Close();
+        }
+
+        private void UpdateControls()
+        {
+
+            AScriptTextBlock.Text = _proxyProfile.AutomaticScript;
+            ProxyTextBlock.Text = _proxyProfile.ProxyAddress;
+            PortTextBlock.Text = _proxyProfile.Port;
+            NameTextBlock.Text = _proxyProfile.Name;
+
+            if(_proxyProfile != null)
+            {
+                NameTextBlock.IsEnabled = false;
+            }
         }
     }
 }

@@ -17,31 +17,8 @@ namespace ProxySwitcher
         {
             DataContext = _appViewModel = AppViewModel.GetCurrent(this);
             InitializeComponent();
-        }
 
-
-
-        private void NewProfileButton_Click(object sender, RoutedEventArgs e)
-        {
-            EditProfileDialog edit = new EditProfileDialog(this);
-            try
-            {
-                edit.ShowDialog();
-            }
-            catch
-            {
-
-            }
-        }
-
-        public void RecieveProfile(ProxyProfile profile)
-        {
-            _appViewModel.SaveProxyProfile(profile);
-        }
-
-        private void ProfileListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
+            Container.Content = new ProfilesView(_appViewModel);
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -49,6 +26,26 @@ namespace ProxySwitcher
             e.Cancel = true;
             base.OnClosing(e);
             Hide();
+        }
+
+        private void ProfilesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowView<ProfilesView>(new ProfilesView(_appViewModel));
+        }
+
+        private void SettingssButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowView<SettingsView>(new SettingsView(_appViewModel));
+        }
+
+        private void AboutsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowView<AboutView>(new AboutView());
+        }
+
+        public void ShowView<T>(T view)
+        {
+            Container.Content = view;
         }
     }
 }

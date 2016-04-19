@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProxySwitcher.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace ProxySwitcher.Views
     /// </summary>
     public partial class SettingsView : UserControl
     {
-        public SettingsView()
+        protected AppViewModel _appViewModel;
+        public SettingsView(AppViewModel appViewModel)
         {
+            DataContext = _appViewModel = appViewModel;
             InitializeComponent();
+
+            UpdateControls();
+        }
+
+        private void StartupCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            _appViewModel.RunOnStartup(StartupCheckBox.IsChecked.Value);
+        }
+
+        private void UpdateControls()
+        {
+            UpdateStartupCheckbox();
+        }
+
+        private void UpdateStartupCheckbox()
+        {
+            StartupCheckBox.IsChecked = _appViewModel.CanRunOnStartUp();
         }
     }
 }

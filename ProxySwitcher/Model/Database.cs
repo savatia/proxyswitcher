@@ -13,9 +13,6 @@ namespace ProxySwitcher.Model
         public ObservableCollection<ProxyProfile> AllProxyProfiles
         {
             get; set;
-        }
-
-        
-       
+        }  
     }
 }
