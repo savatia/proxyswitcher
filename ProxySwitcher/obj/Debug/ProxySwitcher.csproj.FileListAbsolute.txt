@@ -27,3 +27,4 @@ C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitch
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Debug\Views\AboutView.baml
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Debug\Views\ProfilesView.baml
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Debug\Views\SettingsView.baml
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Debug\Resources\DefaultStyles.baml

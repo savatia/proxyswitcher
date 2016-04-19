@@ -21,7 +21,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border Padding="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-                                <Grid >
+                                <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
@@ -39,12 +39,12 @@
                                             <Setter Property="Margin" Value="20, 0, 0, 0"/>
                                         </Style>
 
-                                        <Style TargetType="{x:Type Button}">
-                                            <Setter Property="Margin" Value="20, 0, 0, 0"/>
+                                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+                                            <Setter Property="Margin" Value="20, 10, 20, 10"/>
                                             <Setter Property="Padding" Value="4,0,4,0"/>
                                             <Setter Property="HorizontalAlignment" Value="Right"/>
                                             <Setter Property="VerticalAlignment" Value="Center"/>
-
+                                            <Setter Property="Background" Value="#FFFA5F5A"/>
                                         </Style>
 
                                     </Grid.Resources>

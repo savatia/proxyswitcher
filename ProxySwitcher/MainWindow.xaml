@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProxySwitcher"
         mc:Ignorable="d"
         xmlns:res="clr-namespace:ProxySwitcher.Resources"
-        Title="MainWindow" Height="600" Width="800">
+        Title="Proxy Switcher" Height="600" Width="800">
     <Window.Resources>
         
     </Window.Resources>
@@ -20,10 +20,20 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1">
-                <TextBlock Margin="20,0,0,0" Padding="10" Text="Proxy Switcher" FontSize="20" FontWeight="DemiBold"/>
+            <Border Background="#3A2F3F" BorderThickness="0" Grid.Column="1">
+                <TextBlock Margin="20,0,0,0" Background="Transparent" Padding="10" Text="Proxy Switcher" FontSize="24" Foreground="White" FontWeight="DemiBold"/>
             </Border>
-            <StackPanel Grid.Column="0" Grid.Row="1">
+            <Border Grid.Column="0" BorderThickness="0" Background="#3A2F3F"/>
+            <StackPanel Grid.Column="0" Grid.Row="1" >
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="Padding" Value="64, 20"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                    </Style>
+                </StackPanel.Resources>
                 <Button Content="Profiles" x:Name="ProfilesButton" Click="ProfilesButton_Click"/>
 
                 <Button Content="Settings" x:Name="SettingssButton" Click="SettingssButton_Click"/>

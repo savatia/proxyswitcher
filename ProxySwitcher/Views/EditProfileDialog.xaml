@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProxySwitcher.Views"
         mc:Ignorable="d"
-        Title="EditProfileDialog" Height="300" Width="300">
+        Title="Edit Profile" Height="300" Width="300">
     <Border Padding="20,10,10,10">
         <Grid>
             <Grid.RowDefinitions>
