@@ -52,7 +52,7 @@
                                     <TextBlock  Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
 
                                     <TextBlock FontWeight="SemiBold" Grid.Row="1" Grid.Column="0" Text="Configuration Script:"/>
-                                    <TextBlock  Grid.Row="1" Grid.Column="1" Text="{Binding ConfigurationScript}"/>
+                                    <TextBlock  Grid.Row="1" Grid.Column="1" Text="{Binding AutomaticScript}"/>
 
                                     <TextBlock FontWeight="SemiBold" Grid.Row="2" Grid.Column="0" Text="Proxy Address:"/>
                                     <TextBlock  Grid.Row="2" Grid.Column="1" Text="{Binding ProxyAddress}"/>

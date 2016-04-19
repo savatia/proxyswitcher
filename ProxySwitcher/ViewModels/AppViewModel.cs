@@ -108,7 +108,13 @@ namespace ProxySwitcher.ViewModels
         {
             using (ProxyHandler handler = new ProxyHandler())
             {
+                if(profile.AutomaticScript == "" || profile.AutomaticScript == null )
                 handler.ChangeProxy(profile.ProxyAddress + ":" + profile.Port);
+                else
+                {
+                    handler.ChangeProxy(profile.ProxyAddress + ":" + profile.Port, profile.AutomaticScript);
+                }
+
             }
 
             UpdatePropertyCheckMarks();

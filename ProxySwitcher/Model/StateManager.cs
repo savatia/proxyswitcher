@@ -18,7 +18,6 @@ namespace ProxySwitcher.Model
         public StateManager()
         {
             _stateFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ProxySwitcher.state");
-            //_stateFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProxySwitcher.state");
             Deserialize();
         }
 

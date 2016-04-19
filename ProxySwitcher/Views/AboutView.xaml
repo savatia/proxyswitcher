@@ -7,6 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="About" FontSize="28"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock TextWrapping="Wrap" Text="Program written by Brian Savatia Keyonzo for and intended to be used by anyone for free reproduction, use and distribution, it can however not be sold. Souce can be found below:"/>
+            <TextBlock>
+                <Hyperlink NavigateUri="https://github.com/savatia/proxyswitcher" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/savatia/proxyswitcher</Hyperlink>
+            </TextBlock>
+            <TextBlock Text="Third Party Libraries" FontSize="28"/>
+            <TextBlock>
+                HardCodet.NotifyIcon.wpf used under the 
+                <Hyperlink NavigateUri="http://www.codeproject.com/info/cpol10.aspx" RequestNavigate="Hyperlink_RequestNavigate">Code Project License</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
     </Grid>
 </UserControl>
