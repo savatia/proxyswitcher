@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using ProxySwitcher.Model;
+using System.Windows.Input;
+using System.Windows.Controls.Primitives;
 
 namespace ProxySwitcher.Views
 {
@@ -19,6 +21,7 @@ namespace ProxySwitcher.Views
             UpdateControls();
             
         }
+     
 
         public EditProfileDialog(ProfilesView ProfilesView)
         {
@@ -59,6 +62,14 @@ namespace ProxySwitcher.Views
             if(_proxyProfile != null)
             {
                 NameTextBlock.IsEnabled = false;
+            }
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SaveButton.RaiseEvent((new RoutedEventArgs(ButtonBase.ClickEvent)));
             }
         }
     }

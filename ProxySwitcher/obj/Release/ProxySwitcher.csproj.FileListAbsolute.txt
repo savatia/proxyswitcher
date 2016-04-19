@@ -21,3 +21,10 @@ C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitch
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\ProxySwitcher.exe
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\ProxySwitcher.pdb
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Views\AboutView.g.cs
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Views\ProfilesView.g.cs
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Views\SettingsView.g.cs
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Resources\DefaultStyles.baml
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Views\AboutView.baml
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Views\ProfilesView.baml
+C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\obj\Release\Views\SettingsView.baml

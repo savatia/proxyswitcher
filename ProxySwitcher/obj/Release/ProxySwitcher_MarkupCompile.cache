@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\Savatia\Documents\Visual Studio 2015\Projects\ProxySwitcher\ProxySwitcher\App.xaml
-3159562330
+71562898900
 
-14705114948
+171767148754
 14-531162303
-MainWindow.xaml;Resources\NotifyIconResources.xaml;Views\EditProfileDialog.xaml;
+MainWindow.xaml;Resources\DefaultStyles.xaml;Resources\NotifyIconResources.xaml;Views\AboutView.xaml;Views\ProfilesView.xaml;Views\EditProfileDialog.xaml;Views\SettingsView.xaml;
 
 False
 

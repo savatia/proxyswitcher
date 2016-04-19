@@ -88,20 +88,39 @@ namespace ProxySwitcher.ViewModels
 
         public void SaveProxyProfile(ProxyProfile profile)
         {
+            try
+            {
             _stateManager.AddProfile(profile);
             _stateManager.SaveDatabase();
+            }
+
+
+            catch { }
         }
 
         public void DeleteProxyProfile(ProxyProfile profile)
         {
-            _stateManager.RemoveProfile(profile);
-            _stateManager.SaveDatabase();
+            try
+            {
+
+                _stateManager.RemoveProfile(profile);
+                _stateManager.SaveDatabase();
+            }
+            catch { }
         }
 
         public void EditProxyProfile(ProxyProfile profile)
         {
-            _stateManager.EditProfile(profile);
-            _stateManager.SaveDatabase();
+            try
+            {
+
+                _stateManager.EditProfile(profile);
+                _stateManager.SaveDatabase();
+            }
+            catch
+            {
+
+            }
         }
 
         public void ChangeProxy(ProxyProfile profile)

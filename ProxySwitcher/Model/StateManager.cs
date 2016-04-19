@@ -43,6 +43,7 @@ namespace ProxySwitcher.Model
 
                     BinaryFormatter formatter = new BinaryFormatter();
                     _db = (Database)formatter.Deserialize(stream);
+                    stream.Close();
                 }
                 catch (Exception e)
                 {
@@ -66,6 +67,7 @@ namespace ProxySwitcher.Model
                 FileStream stream = File.Open(_stateFile, FileMode.OpenOrCreate);
                 BinaryFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(stream, _db);
+                stream.Close();
             }
 
             catch (Exception e)
